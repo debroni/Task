@@ -26,73 +26,19 @@ public class Controller {
         View view = null;
 
         switch (action) {
-            case 1: view = new AddTaskView();
+            case 1: view = new AddTaskView(taskList);
                 break;
             case 2: view = new ClassMenuView();
                 break;
             case 3: view = new ClassMenuView();
                 break;
-            case 4: view = new AllView();
+            case 4: view = new AllView(taskList);
                 break;
             case 5: System.exit(1);
-
-            default: view = new ClassMenuView();
         }
         view.show();
     }
 
-    public String getTasks() {
-        return taskList.toString();
-    }
-
-    public void addTask() throws ParseException {
-
-        System.out.println("Enter date dd-mm-yyyy");
-        String start2 = null;
-        String end2 = null;
-        try {
-            start2 = bufferedReader.readLine();
-            end2 = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
-
-        Date start = format.parse(start2);
-        Date end = format.parse(end2);
-
-        System.out.println("Enter title");
-
-        String title = null;
-        try {
-            title = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        for (Task t:taskList
-        ) {
-            if(t.getTitle().equals(title)) {
-                System.out.println("This name is used");
-                return;
-            }
-        }
-
-        System.out.println("Enter interval");
-        int interval = 0;
-        try {
-            interval = bufferedReader.read();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Task newTask;
-
-        newTask = new Task(title, start, end, interval);
-        taskList.add(newTask);
-        System.out.println("Task was add successful!");
-    }
 
     public void removeTask() {
         System.out.println("Enter name to delete");

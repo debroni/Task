@@ -1,5 +1,8 @@
 package ua.sumdu.j2se.matusevich.tasks.view;
 
+import ua.sumdu.j2se.matusevich.tasks.model.Task;
+import ua.sumdu.j2se.matusevich.tasks.model.TaskList;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,13 +11,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddTaskView implements View {
-
+    private TaskList taskList;
     private BufferedReader bufferedReader = new BufferedReader (new InputStreamReader(System.in));
+
+    public AddTaskView(TaskList taskList) {
+        this.taskList = taskList;
+    }
 
     @Override
     public void show() {
         System.out.println("Enter title");
-        String newTitle;
+        String newTitle = null;
         try {
             newTitle = bufferedReader.readLine();
         } catch (IOException e) {
@@ -34,9 +41,11 @@ public class AddTaskView implements View {
 
         SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
 
+        Date newStart2 = null;
+        Date newEnd2 = null;
         try {
-            Date newStart2 = format.parse(newStart);
-            Date newEnd2 = format.parse(newEnd);
+            newStart2 = format.parse(newStart);
+            newEnd2 = format.parse(newEnd);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -48,5 +57,8 @@ public class AddTaskView implements View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        Task newTask = new Task(newTitle, newStart2, newEnd2, newInterval);
+        taskList.add(newTask);
     }
 }
