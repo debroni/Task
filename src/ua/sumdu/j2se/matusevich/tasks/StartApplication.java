@@ -25,6 +25,7 @@ public class StartApplication {
                 view.show();
                 System.out.println("Enter your choice ");
                 choice = Integer.parseInt(bufferedReader.readLine());
+
                 if (choice > 0 && choice < 6) {
                     controller.handleAction(choice);
                 }
