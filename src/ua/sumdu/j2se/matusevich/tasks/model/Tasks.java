@@ -1,4 +1,4 @@
-package ua.sumdu.j2se.matusevich.tasks;
+package ua.sumdu.j2se.matusevich.tasks.model;
 import ua.sumdu.j2se.matusevich.tasks.model.ArrayTaskList;
 import ua.sumdu.j2se.matusevich.tasks.model.Task;
 import ua.sumdu.j2se.matusevich.tasks.model.TaskList;

@@ -1,23 +1,59 @@
 package ua.sumdu.j2se.matusevich.tasks;
 
 import ua.sumdu.j2se.matusevich.tasks.controller.Controller;
+import ua.sumdu.j2se.matusevich.tasks.controller.MainController;
 import ua.sumdu.j2se.matusevich.tasks.model.ArrayTaskList;
 import ua.sumdu.j2se.matusevich.tasks.model.TaskList;
 import ua.sumdu.j2se.matusevich.tasks.view.ClassMenuView;
 import ua.sumdu.j2se.matusevich.tasks.view.View;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class StartApplication {
     public static void main(String[] args) {
         TaskList t = new ArrayTaskList();
-        Controller controller = new Controller(t);
+        File f = null;
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter("taskslist.txt", true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         View view = new ClassMenuView();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int choice = 0;
-        boolean flag = true;
+        int choice2 = 0;
+        boolean flag = false;
+        String fileName = null;
+
+        System.out.println("1. Create new list. \n" +
+                "2. Choose old list");
+        try {
+            choice2 = Integer.parseInt(bufferedReader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (choice2 == 1) {
+            System.out.println("Enter file name.");
+            try {
+                fileName = bufferedReader.readLine() + ".txt";
+                f = new File(fileName);
+                fileWriter.write(fileName + "\n");
+                fileWriter.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (choice2 == 2) {
+
+        }
+
+        Controller controller = null;
+        flag = true;
 
         while(flag) {
 
@@ -27,7 +63,7 @@ public class StartApplication {
                 choice = Integer.parseInt(bufferedReader.readLine());
 
                 if (choice > 0 && choice < 6) {
-                    controller.handleAction(choice);
+                    controller = new MainController(t, f, choice);
                 }
                 else System.out.println("Enter correct variant!");
             } catch (IOException e) {

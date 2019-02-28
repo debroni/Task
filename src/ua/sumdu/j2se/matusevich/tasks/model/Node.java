@@ -1,6 +1,4 @@
-package ua.sumdu.j2se.matusevich.tasks;
-
-import ua.sumdu.j2se.matusevich.tasks.model.Task;
+package ua.sumdu.j2se.matusevich.tasks.model;
 
 public class Node implements Cloneable{
     private Task task;

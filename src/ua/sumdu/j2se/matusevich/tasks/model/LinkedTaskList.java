@@ -1,5 +1,4 @@
 package ua.sumdu.j2se.matusevich.tasks.model;
-import ua.sumdu.j2se.matusevich.tasks.Node;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
