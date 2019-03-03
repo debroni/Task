@@ -6,4 +6,6 @@ public class AllView implements View {
     public void show() {
         System.out.println("All tasks:");
     }
+
+    public void show2() {System.out.println("Task list is empty!");}
 }

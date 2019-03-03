@@ -1,8 +1,6 @@
 package ua.sumdu.j2se.matusevich.tasks.controller;
 
 import ua.sumdu.j2se.matusevich.tasks.model.TaskList;
-import ua.sumdu.j2se.matusevich.tasks.view.ClassMenuView;
-import ua.sumdu.j2se.matusevich.tasks.view.View;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +10,7 @@ import static ua.sumdu.j2se.matusevich.tasks.model.TaskIO.writeText;
 public class MainController implements Controller {
     private TaskList taskList;
     private File file;
-    int choice;
+    private int choice;
     public MainController(TaskList t, File f, int choice) {
         this.taskList = t;
         this.file = f;
@@ -22,7 +20,6 @@ public class MainController implements Controller {
     @Override
     public void go() {
         Controller controller = null;
-        View view = new ClassMenuView();
 
         switch (choice) {
             case 1: controller = new AddTaskController(taskList);
@@ -41,6 +38,6 @@ public class MainController implements Controller {
                 }
                 System.exit(1);
         }
-        view.show();
+        controller.go();
     }
 }

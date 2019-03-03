@@ -3,7 +3,6 @@ package ua.sumdu.j2se.matusevich.tasks.controller;
 import ua.sumdu.j2se.matusevich.tasks.model.Task;
 import ua.sumdu.j2se.matusevich.tasks.model.TaskList;
 import ua.sumdu.j2se.matusevich.tasks.view.EditTaskView;
-import ua.sumdu.j2se.matusevich.tasks.view.View;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +13,7 @@ import java.util.Date;
 
 public class EditTaskController implements Controller {
     TaskList taskList = null;
-    View view = new EditTaskView();
+    EditTaskView view = new EditTaskView();
     private BufferedReader bufferedReader = new BufferedReader (new InputStreamReader(System.in));
 
     public EditTaskController(TaskList taskList) {
@@ -34,7 +33,7 @@ public class EditTaskController implements Controller {
         for (Task t: taskList
         ) {
             if (t.getTitle().equals(search)) {
-                System.out.println("Enter new title:");
+                view.show2();
                 String newTitle = null;
                 try {
                     newTitle = bufferedReader.readLine();
@@ -44,7 +43,7 @@ public class EditTaskController implements Controller {
 
                 t.setTitle(newTitle);
 
-                System.out.println("Enter start, end in format dd-mm-yyyy");
+                view.show3();
                 String newStart = null;
                 String newEnd = null;
 
@@ -66,7 +65,7 @@ public class EditTaskController implements Controller {
                     e.printStackTrace();
                 }
 
-                System.out.println("Enter interval");
+                view.show4();
                 int newInterval = 0;
                 try {
                     newInterval = Integer.parseInt(bufferedReader.readLine());

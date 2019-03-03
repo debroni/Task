@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class AddTaskController implements Controller {
     TaskList taskList = null;
-    View view = new AddTaskView();
+    AddTaskView view = new AddTaskView();
     private BufferedReader bufferedReader = new BufferedReader (new InputStreamReader(System.in));
 
     public AddTaskController(TaskList taskList) {
@@ -25,39 +25,32 @@ public class AddTaskController implements Controller {
     public void go() {
         view.show();
         String newTitle = null;
-        try {
-            newTitle = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("Enter start, end in format dd-mm-yyyy");
-        String newStart = null;
-        String newEnd = null;
-
-        try {
-            newStart = bufferedReader.readLine();
-            newEnd = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
 
         Date newStart2 = null;
         Date newEnd2 = null;
+        String newStart = null;
+        String newEnd = null;
+        int newInterval = 0;
+
         try {
+            newTitle = bufferedReader.readLine();
+
+            view.show2();
+
+            newStart = bufferedReader.readLine();
+            newEnd = bufferedReader.readLine();
+
+
             newStart2 = format.parse(newStart);
             newEnd2 = format.parse(newEnd);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
-        System.out.println("Enter interval");
-        int newInterval = 0;
-        try {
+            view.show3();
+
             newInterval = Integer.parseInt(bufferedReader.readLine());
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
 

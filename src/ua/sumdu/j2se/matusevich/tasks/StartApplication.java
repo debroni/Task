@@ -27,13 +27,17 @@ public class StartApplication {
         boolean flag = false;
         String fileName = null;
 
-        System.out.println("1. Create new list. \n" +
-                "2. Choose old list");
-        try {
-            choice2 = Integer.parseInt(bufferedReader.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+            System.out.println("1. Create new list. \n" +
+                    "2. Choose old list");
+            try {
+                choice2 = Integer.parseInt(bufferedReader.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid data");
+                System.exit(2);
+            }
 
         if (choice2 == 1) {
             System.out.println("Enter file name.");
@@ -64,6 +68,7 @@ public class StartApplication {
 
                 if (choice > 0 && choice < 6) {
                     controller = new MainController(t, f, choice);
+                    controller.go();
                 }
                 else System.out.println("Enter correct variant!");
             } catch (IOException e) {
