@@ -31,9 +31,6 @@ public class Task  implements Cloneable,  Serializable{
         repeat = true;
     }
 
-    public static void checkList(LinkedTaskList list) {
-    }
-
     public String getTitle() {
         return title;
     }

@@ -1,7 +1,4 @@
 package ua.sumdu.j2se.matusevich.tasks.model;
-import ua.sumdu.j2se.matusevich.tasks.model.ArrayTaskList;
-import ua.sumdu.j2se.matusevich.tasks.model.Task;
-import ua.sumdu.j2se.matusevich.tasks.model.TaskList;
 
 import java.util.Date;
 import java.util.*;
@@ -69,4 +66,12 @@ public class Tasks {
         return result;
     }
 
+    public static void checkList(TaskList list) {
+        for (Task t: list) {
+            if (t.getStartTime().getTime() >= System.currentTimeMillis() - 7000 &&
+                    t.getStartTime().getTime() <= System.currentTimeMillis() + 7000) {
+                System.out.println(t.getTitle() + " is started!");
+            }
+        }
+    }
 }

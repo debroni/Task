@@ -1,6 +1,6 @@
-package ua.sumdu.j2se.matusevich.tasks.view;
+package ua.sumdu.j2se.matusevich.tasks.controller;
 
-public class ClassMenuView implements View {
+public class ClassMenuView {
 
     public void show() {
         System.out.println("Select option: \n" +

@@ -1,5 +1,4 @@
 package ua.sumdu.j2se.matusevich.tasks.model;
-import ua.sumdu.j2se.matusevich.tasks.model.Task;
 
 import java.io.Serializable;
 import java.util.Iterator;

@@ -14,15 +14,14 @@ public class CheckTasks extends Thread {
     public void run() {
         for (int i = 0; i >= 0; i++) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("New thread");
 
-          // if (list != null) {
-          //      TaskList.checkList(list);
-            // }
+           if (list != null) {
+                Tasks.checkList(list);
+           }
         }
     }
 }
