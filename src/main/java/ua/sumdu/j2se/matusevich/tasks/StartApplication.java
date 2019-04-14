@@ -33,7 +33,7 @@ public class StartApplication {
             flag = true;
         }
 
-        if (choice2 == 2) {
+        else if (choice2 == 2) {
             t.add(new Task("task1", new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss.SSS" ).parse( "2019-04-12 09:00:00.000" ), new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss.SSS" ).parse( "2019-04-20 09:00:00.000" ), 3));
             t.add(new Task("task2", new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss.SSS" ).parse( "2019-04-13 09:00:00.000" ), new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss.SSS" ).parse( "2019-04-21 09:00:00.000" ), 4));
             t.add(new Task("task3", new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss.SSS" ).parse( "2019-04-14 09:00:00.000" ), new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss.SSS" ).parse( "2019-04-22 09:00:00.000" ), 5));
@@ -41,7 +41,7 @@ public class StartApplication {
             flag = true;
         }
 
-        if (choice2 == 3) {
+        else if (choice2 == 3) {
             System.out.println("Example of the load file. \n" +
                     "First line is the title. Example: taskList \n" +
                     "Second line is the start of reminder. Example: 2019-04-11 09:30:00.000 \n" +
